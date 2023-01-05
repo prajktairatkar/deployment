@@ -1,0 +1,56 @@
+<h2 mat-dailog-title>Add New Entries</h2>
+<div mnat-dialog-content>
+  <form [formGroup]="subtaskForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Select Project</mat-label>
+      <mat-select formControlName="projectname" placeholder="Project Name">
+        <mat-option *ngFor="let data of readData" [value]="data.projectname">{{
+          data.projectname
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Task Name</mat-label>
+      <input formControlName="taskname" matInput placeholder="Task Name" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Choose Task Start date</mat-label>
+      <input formControlName="startdate" matInput [matDatepicker]="picker" />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Duration</mat-label>
+      <input
+        type="number"
+        formControlName="duration"
+        matInput
+        placeholder="Duration"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Progress</mat-label>
+      <input
+        type="number"
+        formControlName="progress"
+        matInput
+        placeholder="Progress"
+      />
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-action [align]="'end'">
+  <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+  <button
+    style="margin-left: 8px"
+    mat-raised-button
+    color="primary"
+    (click)="addthesubdata()"
+  >
+    {{ actionBtn }}
+  </button>
+</div>

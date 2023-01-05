@@ -1,0 +1,97 @@
+<mat-card style="background-color: #222437">
+  <div class="flex-parent-element">
+    <div class="flex-child-element">
+      <div>
+        <i class="fas fa-info-circle" style="color: white"
+          >Please upload Project Details Excel Sheet in 'xlsx' format.</i
+        >
+        <div style="padding-top: 8px">
+          <input
+            style="
+              color: white;
+              font-family: Poppins, sans-serif;
+              font-size: medium;
+            "
+            type="file"
+            (change)="onFileChange($event)"
+            multiple="true"
+            accept=".xls , .xlsx"
+          />
+          <button mat-raised-button (click)="uploadFile()">Submit</button>
+        </div>
+      </div>
+    </div>
+    <div class="flex-child-element">
+      <div class="att-container">
+        <div class="file-type">
+          <div style="margin: 0; padding: 2px">XLSX</div>
+        </div>
+        <div class="file-details">
+          <div class="name">
+            <a href="assets/Project_data.xlsx" style="color: #222437"
+              >click here to check the format of the file</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</mat-card>
+
+<br />
+
+<mat-card style="background-color: #222437">
+  <div class="flex-parent-element">
+    <div class="flex-child-element">
+      <div>
+        <i class="fas fa-info-circle" style="color: white"
+          >Please upload Subtask Excel Sheet in 'xlsx' format.</i
+        >
+        <div style="padding-top: 8px">
+          <input
+            style="
+              color: white;
+              font-family: Poppins, sans-serif;
+              font-size: medium;
+            "
+            type="file"
+            (change)="onFileChangeNew($event)"
+            multiple="true"
+            accept=".xls , .xlsx"
+          />
+          <button mat-raised-button (click)="uploadFileNew()">Submit</button>
+        </div>
+      </div>
+    </div>
+    <div class="flex-child-element">
+      <div class="att-container">
+        <div class="file-type">
+          <div style="margin: 0; padding: 2px">XLSX</div>
+        </div>
+        <div class="file-details">
+          <div class="name">
+            <a href="assets/subtask.xlsx" style="color: #222437"
+              >click here to check the format of the file</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</mat-card>
+<!-- <br />
+<mat-card style="background-color: #222437">
+  <p style="color: white; font-family: Poppins, sans-serif">
+    Please upload Subtask Excel Sheet in 'xlsx' format.
+  </p>
+  <div>
+    <input
+      style="color: white; font-family: Poppins, sans-serif; font-size: medium"
+      type="file"
+      (change)="onFileChangeNew($event)"
+      multiple="true"
+      accept=".xls , .xlsx"
+    />
+    <button mat-raised-button (click)="uploadFileNew()">Submit</button>
+  </div>
+</mat-card> -->

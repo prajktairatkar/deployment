@@ -1,0 +1,322 @@
+<app-resfileupload></app-resfileupload>
+
+<div class="flex-parent-element">
+  <div class="flex-child-element" style="padding-right: 45%">
+    <mat-form-field appearance="standard">
+      <div style="margin-bottom: -30px">
+        <mat-icon style="margin-top: -2px" matPrefix></mat-icon>
+      </div>
+      <span matPrefix>
+        <mat-icon matPrefix>search</mat-icon>
+      </span>
+      <mat-label>Search</mat-label>
+      <input
+        matInput
+        (keyup)="applyFilter($event)"
+        placeholder="Ex. ium"
+        #input
+      />
+    </mat-form-field>
+  </div>
+
+  <div class="flex-child-element" style="padding-top: 25px">
+    <button mat-raised-button color="primary" (click)="openResDialog()">
+      ADD NEW RESOURCE
+    </button>
+  </div>
+</div>
+
+<table
+  mat-table
+  [dataSource]="dataSource"
+  multiTemplateDataRows
+  matSort
+  class="mat-elevation-z8"
+>
+  <!-- <ng-container
+    matColumnDef="{{ column }}"
+    *ngFor="let column of columnsToDisplay"
+  >
+    <th mat-header-cell *matHeaderCellDef mat-sort-header class="columname">
+      {{ column }}
+    </th>
+    <td mat-cell *matCellDef="let element" class="columname">
+      {{ element[column] }}
+    </td>
+  </ng-container> -->
+  <ng-container matColumnDef="EmpId">
+    <!-- <th mat-header-cell *matHeaderCellDef mat-sort-header class="columname">
+      {{ column }}
+    </th> -->
+    <th mat-header-cell *matHeaderCellDef mat-sort-header class="columname">
+      Employee ID
+    </th>
+    <!-- <th mat-header-cell *matHeaderCellDef mat-sort-header class="columname">
+      Start Date
+    </th> -->
+    <!-- <th mat-header-cell *matHeaderCellDef mat-sort-header class="columname">
+      End Date
+    </th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header class="columname">
+      Status
+    </th> -->
+
+    <td mat-cell *matCellDef="let element" class="columname">
+      {{ element.EmpId }}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="EmpName">
+    <!-- <th mat-header-cell *matHeaderCellDef mat-sort-header class="columname">
+      {{ column }}
+    </th> -->
+    <th mat-header-cell *matHeaderCellDef mat-sort-header class="columname">
+      Employee Name
+    </th>
+    <!-- <th mat-header-cell *matHeaderCellDef mat-sort-header class="columname">
+      Start Date
+    </th> -->
+    <!-- <th mat-header-cell *matHeaderCellDef mat-sort-header class="columname">
+      End Date
+    </th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header class="columname">
+      Status
+    </th> -->
+
+    <td mat-cell *matCellDef="let element" class="columname">
+      {{ element.EmpName }}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="Grade">
+    <!-- <th mat-header-cell *matHeaderCellDef mat-sort-header class="columname">
+      {{ column }}
+    </th> -->
+    <th mat-header-cell *matHeaderCellDef mat-sort-header class="columname">
+      Grade
+    </th>
+    <!-- <th mat-header-cell *matHeaderCellDef mat-sort-header class="columname">
+      Start Date
+    </th> -->
+    <!-- <th mat-header-cell *matHeaderCellDef mat-sort-header class="columname">
+      End Date
+    </th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header class="columname">
+      Status
+    </th> -->
+
+    <td mat-cell *matCellDef="let element" class="columname">
+      {{ element.Grade }}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="Email">
+    <!-- <th mat-header-cell *matHeaderCellDef mat-sort-header class="columname">
+      {{ column }}
+    </th> -->
+    <th mat-header-cell *matHeaderCellDef mat-sort-header class="columname">
+      Email
+    </th>
+    <!-- <th mat-header-cell *matHeaderCellDef mat-sort-header class="columname">
+      Start Date
+    </th> -->
+    <!-- <th mat-header-cell *matHeaderCellDef mat-sort-header class="columname">
+      End Date
+    </th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header class="columname">
+      Status
+    </th> -->
+
+    <td mat-cell *matCellDef="let element" class="columname">
+      {{ element.Email }}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="expand">
+    <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>
+    <td mat-cell *matCellDef="let element">
+      <button
+        mat-icon-button
+        aria-label="expand row"
+        (click)="
+          expandedElement = expandedElement === element ? null : element;
+          $event.stopPropagation();
+          getResoucePro(element.Email)
+        "
+        class="mat-icon-button"
+      >
+        <mat-icon *ngIf="expandedElement !== element"
+          >keyboard_arrow_down</mat-icon
+        >
+        <mat-icon *ngIf="expandedElement === element"
+          >keyboard_arrow_up</mat-icon
+        >
+      </button>
+      <button
+        mat-icon-button
+        (click)="editresource(element)"
+        class="mat-icon-button"
+      >
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        (click)="deleteresource(element.id)"
+        class="mat-icon-button"
+      >
+        <mat-icon>delete</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+  <ng-container matColumnDef="expandedDetail">
+    <td
+      mat-cell
+      *matCellDef="let element"
+      [attr.colspan]="columnsToDisplayWithExpand.length"
+    >
+      <div
+        class="example-element-detail"
+        [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'"
+      >
+        <!-- <div class="example-element-diagram">
+          <div class="example-element-position">{{ element.position }}</div>
+          <div class="example-element-symbol">{{ element.symbol }}</div>
+          <div class="example-element-name">{{ element.name }}</div>
+          <div class="example-element-weight">{{ element.weight }}</div>
+        </div> -->
+        <div class="detail-table">
+          <table class="detail-table">
+            <tr class="tableinfo">
+              <!-- <th>Avatar</th> -->
+              <!-- <th >ProjectName</th>
+              <th>ProjectStartDate</th>
+              <th>ProjectEndDate</th> -->
+              <!-- <th>ProjectStatus</th> -->
+              <th>Account Mapped To</th>
+              <th>Capgemini Joining Date</th>
+              <th>MG Joining Date</th>
+              <!-- <th>Grade</th> -->
+              <th>Mentor</th>
+              <th>Primary Skill</th>
+              <th>Secondary Skill</th>
+              <th>Training1</th>
+              <th>Training2</th>
+              <th>Base Location</th>
+              <th>Reporting Location</th>
+              <th>Gender</th>
+              <th>Asset Using</th>
+              <th>Phone no.</th>
+            </tr>
+            <tr>
+              <!-- <td><img src="https://picsum.photos/id/{{element.id}}/150/100" alt="thumbnail"></td> -->
+              <!-- <td>{{element.ProjectName}}  </td>
+              <td>{{element.ProjectStartDate}}</td>
+              <td>{{element.ProjectEndDate}}</td> -->
+              <!-- <td>{{element.ProjectStatus}}</td> -->
+              <td>{{ element.AccountMappedto }}</td>
+              <td>{{ element.Capgeminijoiningdate | date }}</td>
+              <td>{{ element.MGJoiningdate | date }}</td>
+              <!-- <td>{{element.Grade}}</td> -->
+              <td>{{ element.Mentor }}</td>
+              <td>{{ element.Primaryskill }}</td>
+              <td>{{ element.Secondaryskill }}</td>
+              <td>{{ element.Training1 }}</td>
+              <td>{{ element.Training2 }}</td>
+              <td>{{ element.BaseLocation }}</td>
+              <td>{{ element.ReportingLocation }}</td>
+              <td>{{ element.Gender }}</td>
+              <td>{{ element.Assetusing }}</td>
+              <!-- <td>{{element.location}}</td> -->
+              <!-- <td>{{element.description}}</td> -->
+              <td>{{ element.phoneno }}</td>
+              <!-- <td>{{element.location}}</td> -->
+            </tr>
+          </table>
+          <br />
+          <br />
+          <br />
+          <!-- <article class="table-header">
+            <button class="button-add-row" mat-button (click)="addRow()">Add Row</button>
+          </article> -->
+          <table class="detail-table">
+            <tr class="tableinfo">
+              <!-- <th>Avatar</th> -->
+              <th>Project Name</th>
+              <th>Project Start Date</th>
+              <th>Project End Date</th>
+            </tr>
+            <tr>
+              <!-- <td><img src="https://picsum.photos/id/{{element.id}}/150/100" alt="thumbnail"></td> -->
+              <td>{{ element.ProjectName }}</td>
+              <td>{{ element.ProjectStartDate | date }}</td>
+              <td>{{ element.ProjectEndDate | date }}</td>
+            </tr>
+            <tr>
+              <!-- <td><img src="https://picsum.photos/id/{{element.id}}/150/100" alt="thumbnail"></td> -->
+              <td>{{ element.ProjectName1 }}</td>
+              <td>{{ element.ProjectStartDate1 | date }}</td>
+              <td>{{ element.ProjectEndDate1 | date }}</td>
+            </tr>
+            <tr>
+              <!-- <td><img src="https://picsum.photos/id/{{element.id}}/150/100" alt="thumbnail"></td> -->
+              <td>{{ element.ProjectName2 }}</td>
+              <td>{{ element.ProjectStartDate2 | date }}</td>
+              <td>{{ element.ProjectEndDate2 | date }}</td>
+            </tr>
+            <tr *ngFor="let pro of readProData">
+              <td>{{ pro.projectname }}</td>
+              <td>{{ pro.start_date | date }}</td>
+              <td>{{ pro.end_date | date }}</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- <div class="example-element-description">
+           {{element.description}}
+          <div></div>
+           Phoneno: {{element.phoneno}}<br>
+           Location: {{element.location}}
+          <span class="example-element-description-attribution">   </span>
+        </div> -->
+      </div>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplayWithExpand"></tr>
+  <tr
+    id="{{ element.id }}"
+    mat-row
+    *matRowDef="let element; columns: columnsToDisplayWithExpand"
+    class="example-element-row"
+  ></tr>
+  <tr
+    mat-row
+    *matRowDef="let row; columns: ['expandedDetail']"
+    class="example-detail-row"
+  ></tr>
+  <tr class="mat-row" *matNoDataRow>
+    <td class="mat-cell" colspan="4">
+      No data matching the filter "{{ input.value }}"
+    </td>
+  </tr>
+</table>
+<br />
+
+<mat-paginator
+  [pageSizeOptions]="[5, 10, 20]"
+  showFirstLastButtons
+  aria-label="Select page of periodic elements"
+>
+</mat-paginator>
+
+<!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                 showFirstLastButtons 
+                 aria-label="Select page of periodic elements">
+</mat-paginator> -->
+
+<!-- <ejs-gantt
+  height="490px"
+  [dataSource]="resourceData"
+  [taskFields]="taskSettings"
+  [timelineSettings]="timelineView"
+  [columns]="columnSettings"
+>
+</ejs-gantt> -->

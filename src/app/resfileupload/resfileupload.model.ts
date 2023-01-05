@@ -1,0 +1,29 @@
+export class resourcedetailsModel {
+  //   id: number = 0;
+  EmpId: string = '';
+  EmpName: string = '';
+  Email: string = '';
+  ProjectName: string = '';
+  ProjectStartDate: string = '';
+  ProjectEndDate: string = '';
+  AccountMappedto: string = '';
+  Capgeminijoiningdate: string = '';
+  MGJoiningdate: string = '';
+  Grade: string = '';
+  Mentor: string = '';
+  Primaryskill: string = '';
+  Secondaryskill: string = '';
+  Training1: string = '';
+  Training2: string = '';
+  BaseLocation: string = '';
+  ReportingLocation: string = '';
+  Gender: string = '';
+  Assetusing: string = '';
+  phoneno: string = '';
+  ProjectName1: string = '';
+  ProjectStartDate1: string = '';
+  ProjectEndDate1: string = '';
+  ProjectName2: string = '';
+  ProjectStartDate2: string = '';
+  ProjectEndDate2: string = '';
+}

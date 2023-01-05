@@ -1,0 +1,42 @@
+<div id="wrapper">
+  <!-- Top Bar Start -->
+  <app-header></app-header>
+  <!-- Top Bar End -->
+
+  <!-- ========== Left Sidebar Start ========== -->
+  <div class="left side-menu">
+    <div class="slimscroll-menu" id="remove-scroll">
+      <app-side-nav></app-side-nav>
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+  <!-- ========== Left Sidebar ENnd ========== -->
+
+  <!-- ============================================================== -->
+  <!-- Start right Content here -->
+  <!-- ============================================================== -->
+
+  <div class="content-page">
+    <div class="content">
+      <div class="container-fluid">
+        <!-- start page-title -->
+        <div class="page-title-box">
+          <div class="row align-items-center">
+            <div class="col-sm-6">
+              <h4 class="page-title">Dashboard</h4>
+            </div>
+          </div>
+        </div>
+        <!-- end page-title -->
+        <!-- start Upload  -->
+        <!-- <div class="content page">
+          <app-excelsheet></app-excelsheet>
+        </div> -->
+        <!-- End Upload -->
+
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

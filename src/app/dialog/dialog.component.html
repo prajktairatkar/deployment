@@ -1,0 +1,124 @@
+<h2 mat-dailog-title>Add New Entries</h2>
+<div mnat-dialog-content>
+  <form [formGroup]="projectForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Project Name</mat-label>
+      <input
+        formControlName="projectname"
+        matInput
+        placeholder="Project Name"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Choose Project Start date</mat-label>
+      <input formControlName="startdate" matInput [matDatepicker]="picker" />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Choose Project End date</mat-label>
+      <input formControlName="enddate" matInput [matDatepicker]="picker1" />
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Status</mat-label>
+      <mat-select formControlName="status" placeholder="Status">
+        <mat-option value="In-Progress">In Progress</mat-option>
+        <mat-option value="On-Hold">On Hold</mat-option>
+        <mat-option value="Complete">Complete</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>SKills Required</mat-label>
+      <input
+        formControlName="skillsrequired"
+        matInput
+        placeholder="SKills Required"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Project Manager</mat-label>
+      <input
+        formControlName="projectmanager"
+        matInput
+        placeholder="Project MAnager"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>MG Lead</mat-label>
+      <input formControlName="mglead" matInput placeholder="MG Lead" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Millennial Spoc</mat-label>
+      <input
+        formControlName="millennialspoc"
+        matInput
+        placeholder="Millennial Spoc"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Millennials</mat-label>
+      <input formControlName="millennials" matInput placeholder="Millennials" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Staff</mat-label>
+      <input formControlName="staff" matInput placeholder="Staff" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Project Status</mat-label>
+      <input
+        formControlName="projectstatus"
+        matInput
+        placeholder="Project Status"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Current Millenials</mat-label>
+      <input
+        formControlName="currentmillenials"
+        matInput
+        placeholder="Current Millenials"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Project Links</mat-label>
+      <input
+        formControlName="projectlinks"
+        matInput
+        placeholder="Project Links"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Comments</mat-label>
+      <input formControlName="comments" matInput placeholder="Comments" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Track</mat-label>
+      <input formControlName="track" matInput placeholder="Track" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>SUB BU</mat-label>
+      <input formControlName="SUBBU" matInput placeholder="SUB BU" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Supply Skill</mat-label>
+      <input
+        formControlName="supplyskill"
+        matInput
+        placeholder="Supply Skill"
+      />
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-action [align]="'end'">
+  <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+  <button
+    style="margin-left: 8px"
+    mat-raised-button
+    color="primary"
+    (click)="addthedata()"
+  >
+    {{ actionBtn }}
+  </button>
+</div>

@@ -1,0 +1,147 @@
+table {
+  width: 100%;
+  /* column-width:auto; */
+  table-layout: fixed;
+}
+
+.mat-header-cell {
+  text-align: center;
+  min-height: 12px;
+  font-size: large;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: white;
+  background-color: rgb(86, 117, 218);
+  /* padding: 8px 8px 8px 8px; */
+  border: 15px;
+  margin-right: 15px;
+  padding-right: 15px;
+  text-align: center;
+  column-width: auto;
+
+  /* text-align: flex-end;
+    align-items: center; */
+  /* border:1px solid rgb(189, 187, 187); */
+}
+
+th.mat-sort-header-sorted {
+  color: rgb(2, 2, 2);
+}
+.mat-form-field {
+  /* font-size: 14px; */
+  width: 250px;
+  float: left;
+  /* padding-bottom:10px;
+    margin-bottom: 10px;
+    border-bottom:10px;
+     */
+}
+
+.mat-paginator {
+  /* width:900px; */
+  float: right;
+  padding-top: 25px;
+}
+tr.example-detail-row {
+  height: 0;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+  background: whitesmoke;
+}
+
+tr.example-element-row:not(.example-expanded-row):active {
+  background: #efefef;
+}
+
+.example-element-row td {
+  border-bottom-width: 0;
+}
+
+.example-element-detail {
+  overflow: hidden;
+  display: flex;
+}
+
+/* .example-element-diagram {
+    min-width: 80px;
+    border: 2px solid black;
+    padding: 8px;
+    font-weight: lighter;
+    margin: 8px 0;
+    height: 104px;
+  } */
+
+/* .example-element-symbol {
+    font-weight: bold;
+    font-size: 35px;
+    line-height: normal;
+  } */
+
+.example-element-description {
+  padding: 8px;
+}
+
+.detail-table {
+  background: white;
+  /* text-align: center; */
+  width: 900px;
+  column-width: auto;
+  /* overflow:scroll; */
+  overflow-x: scroll;
+  white-space: nowrap;
+  table-layout: auto;
+  font-family: "Ubuntu";
+  text-align: center;
+  padding: 8px 8px 8px 8px;
+}
+
+div.detail-table td,
+th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 10px 10px 10px 10px;
+}
+
+.example-element-description-attribution {
+  opacity: 0.5;
+}
+.tableinfo {
+  color: rgb(238, 231, 231);
+  background-color: rgb(15, 14, 14);
+  margin: 10px 10px 10px 10px;
+  width: 50px;
+  font-family: "Ubuntu";
+}
+.mat-elevation-z8 {
+  text-align: start;
+  font-family: "Ubuntu";
+  padding: 8px 8px 8px 8px;
+}
+.mat-icon-button {
+  align-items: center;
+  margin-left: 100px;
+}
+/* .mat-paginator{
+    width:1000px;
+    text-align:right;
+
+  } */
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.flex-parent-element {
+  display: flex;
+}
+
+.flex-child-element {
+  flex: 1;
+  margin: 10px;
+}
+/* .parent > div:first-child {
+  flex: 1 0 100%;
+} */
+
+.flex-child-element:first-child {
+  margin-right: 20px;
+}

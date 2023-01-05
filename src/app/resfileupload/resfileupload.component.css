@@ -1,0 +1,75 @@
+/* .example-spacer {
+  flex: 1 1 auto;
+}
+
+.flex-parent-element {
+  display: flex;
+}
+
+.flex-child-element {
+  flex: 1;
+  margin: 10px;
+}
+
+.flex-child-element:first-child {
+  margin-right: 20px;
+} */
+.flex-parent-element {
+  display: flex;
+}
+
+.flex-child-element {
+  /* flex: 1; */
+  margin: 10px;
+}
+
+.flex-child-element:first-child {
+  margin-right: 120px;
+}
+.email-attachments {
+  display: flex;
+  flex-wrap: wrap;
+}
+.name {
+  font-size: 14px;
+  color: black;
+  /* word-break: break-all;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 100%; */
+  height: 15px;
+  /* line-height: 15px;
+  vertical-align: top; */
+}
+.att-container {
+  cursor: default;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  display: flex;
+  margin: 5px;
+  padding: 5px;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  border: 1px solid #999999;
+  border-radius: 5px;
+  background-color: white;
+}
+.file-type {
+  width: 50px;
+  margin-right: 5px;
+  height: 50px;
+  border-radius: 1px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  background-color: #105901;
+}
+.file-details {
+  width: 126px;
+  overflow: hidden;
+  flex: 1 1 100%;
+  color: white;
+}
